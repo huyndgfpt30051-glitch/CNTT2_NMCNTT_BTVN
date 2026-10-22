@@ -1,0 +1,86 @@
+# BÀI LÀM – ÔN TẬP NGÀY 3
+
+- **Họ tên:NGUYEN DUC GIA HUY 
+- **Lớp:CNTT2
+- **Link repository:**
+- **Hệ điều hành (Windows/macOS):**
+
+## Bài 1. README.md
+
+> README.md được chấm trực tiếp trên file `README.md` ở thư mục gốc. Đánh dấu `[x]` vào các mục đã làm để tự kiểm tra.
+
+- [ ] Heading 1: tên dự án : trung tâm tiếng anh tta 
+- [ ] Ít nhất 2 heading cấp 2 
+- [ ] Mô tả ngắn có cả **in đậm** và *in nghiêng*
+    ## Giới thiệu
+Dự án **Website Quản Lý Học Tập** được xây dựng nhằm hỗ trợ trung tâm **_nâng cao hiệu quả quản lý khóa học_** và theo dõi sát sao tiến độ đăng ký của học viên trong tháng 10.
+- [ ] Bảng `Thư mục | Nội dung`, ít nhất 3 dòng dữ liệu
+          THƯ MỤC | NDUNG 
+         | `archive/` | Lưu trữ tài liệu cũ và dữ liệu lưu cất |
+| `data/` | Chứa các file Excel dữ liệu học phí và khóa học |
+| `README.md` | Tài liệu giới thiệu tổng quan về dự án |
+
+
+- [ ] Danh sách đánh số ít nhất 3 bước
+       1. Học viên tra cứu danh mục khóa học và mức học phí hiện hành.
+2. Điền thông tin cá nhân và chọn mã khóa học tương ứng.
+3. Kế toán xác nhận dữ liệu và tổng hợp học phí vào hệ thống.
+
+
+- [ ] Code block chứa lệnh PowerShell/Terminal liệt kê nội dung dự án
+Get-ChildItem -Recurse -Force
+- [ ] Task list ít nhất 2 công việc, có ít nhất 1 mục đã hoàn thành
+         đưa tài liệu cho hs [ x ]
+         giảng cho hs [ ]
+- [ ] Blockquote nhắc không upload `.env`
+
+
+## Bài 2. Excel
+
+> Công thức được chấm trực tiếp trên file `data/hoc_phi_thang_10.xlsx`.
+
+- **Số dòng còn hiển thị sau khi lọc (câu d):**
+- **Câu e – Vì sao vùng tra cứu cần dấu $:**
+a) Dùng VLOOKUP khớp chính xác cho sheet `DangKy`
+* **Cột `ten_khoa` (Cột E):** Tại ô `E2` của sheet `DangKy`, nhập công thức:
+  ```excel
+  =VLOOKUP(C2, KhoaHoc!$A$2:$C$8, 2, FALSE)
+Công thức kéo xuống cho toàn bộ 15 dòng.
+
+Cột hoc_phi(Cột F): In ô F2của sheet DangKy, nhập công thức:
+
+Excel
+=VLOOKUP(C2, KhoaHoc!$A$2:$C$8, 3, FALSE)
+Công thức kéo xuống cho toàn bộ 15 dòng.
+
+b) Tính tổng học phí
+Cột tong_hoc_phi(Cột G): In ô G2của sheet DangKy, nhập công thức:
+
+Excel
+=D2*F2
+Công thức kéo xuống đủ 15 dòng dữ liệu.
+
+c) Kiểm tra lưu lượng tại trang tínhKhoaHoc
+Tại ô F2của trang tính KhoaHoc, nhập khóa mã nghiên cứu công thức đang nằm ở ô E2(ví dụ mã IE02):
+
+Excel
+=VLOOKUP(E2, A$2:C$8, 3, FALSE)
+Thử thay đổi giá trị ô E2sang mã khóa khác để kiểm tra tính đúng, sau đó trả lại giá trị IE02như ban đầu.
+
+d) Lọc dữ liệu bằng AutoFilter
+Boi tiêu đề và toàn bộ bảng dữ liệu DangKy, chọn thẻ Data > Filter (AutoFilter).
+
+Tại cột mũi tên tong_hoc_phi, chọn Bộ lọc số > Lớn hơn hoặc bằng... và nhập giá trị 6000000.
+
+Quan sát góc trái hoặc số dòng còn hiển thị sau khi lọc. Ghi lại số dòng còn hiển thị này vào tệp (thường là khoảng 9 dòng tùy chọn theo mẫu dữ liệu). bai_lam_ngay3.md
+
+Lưu file Excel lại ( Ctrl + S).
+
+e) Trả lời câu hỏi vai trò của dấu $trong vùng nghiên cứu
+Nội dung trả lời ghi vào bài làm:
+
+Khu vực nghiên cứu cần sử dụng địa chỉ tuyệt đối (có dấu $, ví dụ KhoaHoc!$A$2:$C$8) để cố định tham số bảng định vị khi kéo công thức xuống các dòng bên dưới. Nếu bỏ dấu $, khi kéo công thức xuống, tra cứu bảng độ sẽ được chuyển đổi theo (thành $A$3:$C$9, $A$4:$C$10,...), dẫn đến việc tìm kiếm bị trượt phạm vi, kết quả trả về lỗi #N/Ahoặc sai dữ liệu ở các dòng bên dưới.
+## Tự chấm (điền sau khi có đáp án)
+
+- **Điểm tự chấm:** ..../100
+- **Lỗi mình đã mắc và cách sửa:**
